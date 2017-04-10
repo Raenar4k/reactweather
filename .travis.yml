@@ -17,3 +17,5 @@ android:
     - extra-google-m2repository
     - extra-android-m2repository
     - addon-google_apis-google-25
+
+script: ./gradlew connectedAndroidTest
