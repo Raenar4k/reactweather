@@ -2,13 +2,13 @@ package com.github.raenar4k.reactweather
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
-import android.util.Log
 import com.github.raenar4k.reactweather.network.UserService
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.moshi.MoshiConverterFactory
+import timber.log.Timber
 
 class MainActivity : AppCompatActivity() {
 
@@ -32,8 +32,8 @@ class MainActivity : AppCompatActivity() {
         userService.getUsers()
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(
-                        { Log.d("Test tag", "Success") },
-                        { Log.d("Test tag", "Error") }
+                        { Timber.d("Success") },
+                        { Timber.d("Error") }
                 )
     }
 }
