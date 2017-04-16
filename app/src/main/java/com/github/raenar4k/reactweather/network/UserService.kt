@@ -5,6 +5,6 @@ import io.reactivex.Single
 import retrofit2.http.GET
 
 interface UserService {
-    @GET("https://randomuser.me/api/?results=5&inc=name,gender,nat,picture&noinfo")
+    @GET("api/?results=5&inc=name,gender,nat,picture&noinfo")
     fun getUsers(): Single<ApiResponse>
 }
