@@ -1,7 +1,8 @@
-package com.github.raenar4k.reactweather
+package com.github.raenar4k.reactweather.ui.main
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import com.github.raenar4k.reactweather.R
 import com.github.raenar4k.reactweather.network.UserService
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
