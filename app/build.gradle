@@ -45,6 +45,7 @@ dependencies {
     compile 'com.squareup.moshi:moshi:1.4.0'
 
     compile 'io.reactivex.rxjava2:rxjava:2.0.8'
+    compile 'io.reactivex.rxjava2:rxandroid:2.0.1'
 }
 repositories {
     mavenCentral()
