@@ -3,12 +3,8 @@ package com.github.raenar4k.reactweather.ui.main
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import com.github.raenar4k.reactweather.R
-import com.github.raenar4k.reactweather.network.UserService
+import com.github.raenar4k.reactweather.getApplication
 import io.reactivex.android.schedulers.AndroidSchedulers
-import io.reactivex.schedulers.Schedulers
-import retrofit2.Retrofit
-import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
-import retrofit2.converter.moshi.MoshiConverterFactory
 import timber.log.Timber
 
 class MainActivity : AppCompatActivity() {
@@ -20,15 +16,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun getUsers() {
-        val callAdapterFactory = RxJava2CallAdapterFactory.createWithScheduler(Schedulers.io())
-
-        val retrofit: Retrofit = Retrofit.Builder()
-                .addConverterFactory(MoshiConverterFactory.create())
-                .addCallAdapterFactory(callAdapterFactory)
-                .baseUrl("https://randomuser.me/")
-                .build()
-
-        val userService = retrofit.create(UserService::class.java)
+        val userService = getApplication(this).getApplicationComponent().userService()
 
         userService.getUsers()
                 .observeOn(AndroidSchedulers.mainThread())
