@@ -9,20 +9,20 @@ import timber.log.Timber
 
 class MainActivity : AppCompatActivity() {
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-        getUsers()
-    }
+  override fun onCreate(savedInstanceState: Bundle?) {
+    super.onCreate(savedInstanceState)
+    setContentView(R.layout.activity_main)
+    getUsers()
+  }
 
-    private fun getUsers() {
-        val userService = getApplication(this).getApplicationComponent().userService()
+  private fun getUsers() {
+    val userService = getApplication(this).getApplicationComponent().userService()
 
-        userService.getUsers()
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(
-                        { Timber.d("Success") },
-                        { Timber.d("Error") }
-                )
-    }
+    userService.getUsers()
+      .observeOn(AndroidSchedulers.mainThread())
+      .subscribe(
+        { Timber.d("Success") },
+        { Timber.d("Error") }
+      )
+  }
 }

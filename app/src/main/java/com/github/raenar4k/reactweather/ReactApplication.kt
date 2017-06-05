@@ -5,26 +5,26 @@ import android.content.Context
 import timber.log.Timber
 
 fun getApplication(context: Context): ReactApplication {
-    return context.applicationContext as ReactApplication
+  return context.applicationContext as ReactApplication
 }
 
 class ReactApplication : Application() {
-    private lateinit var applicationComponent: ApplicationComponent
+  private lateinit var applicationComponent: ApplicationComponent
 
-    override fun onCreate() {
-        super.onCreate()
-        if (!BuildConfig.RELEASE) {
-            Timber.plant(Timber.DebugTree())
-        }
-        applicationComponent = createApplicationComponent()
+  override fun onCreate() {
+    super.onCreate()
+    if (!BuildConfig.RELEASE) {
+      Timber.plant(Timber.DebugTree())
     }
+    applicationComponent = createApplicationComponent()
+  }
 
-    private fun createApplicationComponent(): ApplicationComponent {
-        return DaggerApplicationComponent.builder()
-                .build()
-    }
+  private fun createApplicationComponent(): ApplicationComponent {
+    return DaggerApplicationComponent.builder()
+      .build()
+  }
 
-    fun getApplicationComponent(): ApplicationComponent {
-        return applicationComponent
-    }
+  fun getApplicationComponent(): ApplicationComponent {
+    return applicationComponent
+  }
 }

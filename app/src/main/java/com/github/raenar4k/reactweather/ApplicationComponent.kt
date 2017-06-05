@@ -7,5 +7,5 @@ import dagger.Component
 @ApplicationScope
 @Component(modules = arrayOf(NetworkModule::class))
 interface ApplicationComponent {
-    fun userService(): UserService
+  fun userService(): UserService
 }

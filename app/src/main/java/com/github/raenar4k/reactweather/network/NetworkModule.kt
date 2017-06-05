@@ -11,17 +11,17 @@ import retrofit2.converter.moshi.MoshiConverterFactory
 @Module
 class NetworkModule {
 
-    @ApplicationScope
-    @Provides
-    fun provideUserService(): UserService {
-        val callAdapterFactory = RxJava2CallAdapterFactory.createWithScheduler(Schedulers.io())
+  @ApplicationScope
+  @Provides
+  fun provideUserService(): UserService {
+    val callAdapterFactory = RxJava2CallAdapterFactory.createWithScheduler(Schedulers.io())
 
-        val retrofit: Retrofit = Retrofit.Builder()
-                .addConverterFactory(MoshiConverterFactory.create())
-                .addCallAdapterFactory(callAdapterFactory)
-                .baseUrl("https://randomuser.me/")
-                .build()
+    val retrofit: Retrofit = Retrofit.Builder()
+      .addConverterFactory(MoshiConverterFactory.create())
+      .addCallAdapterFactory(callAdapterFactory)
+      .baseUrl("https://randomuser.me/")
+      .build()
 
-        return retrofit.create(UserService::class.java)
-    }
+    return retrofit.create(UserService::class.java)
+  }
 }
