@@ -54,6 +54,8 @@ dependencies {
 
     compile 'com.jakewharton.timber:timber:4.5.1'
 
+    compile 'com.squareup.picasso:picasso:2.5.2'
+
     def daggerVersion = '2.11'
     compile "com.google.dagger:dagger:$daggerVersion"
     kapt"com.google.dagger:dagger-compiler:$daggerVersion"
